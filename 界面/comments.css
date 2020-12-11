@@ -2,7 +2,7 @@
 * @Author: lenovo
 * @Date:   2020-12-07 17:38:53
 * @Last Modified by:   lenovo
-* @Last Modified time: 2020-12-10 16:27:10
+* @Last Modified time: 2020-12-11 14:57:53
 */
 *{
     margin: 0;
@@ -52,10 +52,6 @@ html,body{
 .info img{
     width:350px;
     height:350px;
-    /* margin-top: 50px; */
-    /* position: absolute;
-    left:10px;
-    top: 10px; */
 }
 .info p{
     width: 300px;
@@ -71,33 +67,28 @@ html,body{
     left: 550px;
     top: 50px;
 }
-/* .scores img{
-    width: 300px;
-    height: 190px;
-    margin-bottom: 10px
-} */
+
 .scores p{
     color: #F08080;
     font-size: 20px;
 }
 
-.bar_bgd{
+#bar_pic{
     height: 400px;
     width: 600px;
     margin-bottom: 15px;
     position: absolute;
-    left: -10px;
-    top: 60px;
-}
-.bar_bgd img{
-    width: 480px;
-    height: 295px;
+    left: -35px;
+    top: 20px;
 }
 
 .more_info{
     position: absolute;
     left: 520px;
     top: 420px;
+}
+.more_info a:hover{
+    color: #F08080;
 }
 .more_info a{
     color: #4FA1D9;
@@ -142,22 +133,20 @@ html,body{
 .line_sp{
     height: 400px;
     width: 600px;
-    margin-bottom: 15px;
     position: absolute;
-    left: 50px;
-    top: 150px;
-}
-.line_sp img{
-    width: 480px;
-    height: 295px;
-}
-.dig_com{
-    height: 400px;
-    width: 600px;
-    position: absolute;
-    left: 590px;
+    left: 20px;
+    top: 100px;
 }
 
-/* .com_list{
-    color: #4FA1D9;
-} */
+#tendency_pic{
+    height: 400px;
+    width: 530px
+}
+.dig_com{
+    height: 380px;
+    width: 600px;
+    position: absolute;
+    top: 110px;
+    left: 560px;
+}
+
