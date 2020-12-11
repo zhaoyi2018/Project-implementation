@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论信息</title>
+    <link rel="stylesheet" href="../static/css/comments.css">
+</head>
+<body>
+<canvas class="cavs" width="1575" height="1337"></canvas>  
+	<div class="bannermain"> 
+		<div class="info">
+			<img src="../static/image/goods.jpg">
+			<!-- 后期可以考虑换一个轮播图 -->
+			<p>
+				{{goods_info}}
+
+			</p>
+		</div>
+		<div class="scores">
+			<p>·&nbsp&nbsp&nbsp各项指标评分&nbsp&nbsp&nbsp·</p>
+			<div id="container" class="bar_bgd"> 
+				<img src={{com_png_path}}/>
+				<!-- data:image/png;base64,{{ img_stream }} -->
+			</div>
+
+			<div class="more_info">
+				<a href="digital_com.html">&gt&gt&gt</a>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>
+
+
+<script src="../static/js/login-2.js"></script>
+<script src="../static/js/login-1.js"></script>
