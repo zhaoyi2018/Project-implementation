@@ -13,16 +13,12 @@
 			<!-- 后期可以考虑换一个轮播图 -->
 			<p>
 				{{goods_info}}
-
 			</p>
 		</div>
 		<div class="scores">
-			<p>·&nbsp&nbsp&nbsp各项指标评分&nbsp&nbsp&nbsp·</p>
-			<div id="container" class="bar_bgd"> 
-				<img src={{com_png_path}}/>
-				<!-- data:image/png;base64,{{ img_stream }} -->
+			<p>·&nbsp&nbsp&nbsp12项关注指标的好评百分比&nbsp&nbsp&nbsp·</p>
+			<div id="bar_pic" class="bar_bgd"> 
 			</div>
-
 			<div class="more_info">
 				<a href="digital_com.html">&gt&gt&gt</a>
 			</div>
@@ -33,6 +29,111 @@
 </body>
 </html>
 
-
 <script src="../static/js/login-2.js"></script>
 <script src="../static/js/login-1.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+
+<script type="text/javascript"> 
+var dom = document.getElementById("bar_pic");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var dataAxis = ['外观','质感','灵敏','舒适','续航','音质','特色','正版','保价','包装','客服','售后'];
+var data = {{twedatas}};
+var yMax = 100;
+var dataShadow = [];
+for (var i = 0; i < data.length; i++) {
+    dataShadow.push(yMax);
+}
+option = {
+    title: {
+        // text: '12项关注指标的好评百分比',
+        // subtext: 'Feature Sample: Gradient Color, Shadow, Click Zoom'
+    },
+    xAxis: {
+        data: dataAxis,
+        axisLabel: {
+            inside: true,
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        axisTick: {
+            show: false
+        },
+        axisLine: {
+            show: false
+        },
+        z: 10
+    },
+    yAxis: {
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel: {
+            textStyle: {
+                color: '#999'
+            }
+        }
+    },
+    dataZoom: [
+        {
+            type: 'inside'
+        }
+    ],
+    series: [
+        { // For shadow
+            type: 'bar',
+            itemStyle: {
+                color: 'rgba(0,0,0,0.05)'
+            },
+            barGap: '-100%',
+            barCategoryGap: '40%',
+            data: dataShadow,
+            animation: false
+        },
+        {
+            type: 'bar',
+            itemStyle: {
+                color: new echarts.graphic.LinearGradient(
+                    0, 0, 0, 1,
+                    [
+                        {offset: 0, color: '#83bff6'},
+                        {offset: 0.5, color: '#188df0'},
+                        {offset: 1, color: '#188df0'}
+                    ]
+                )
+            },
+            emphasis: {
+                itemStyle: {
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            {offset: 0, color: '#2378f7'},
+                            {offset: 0.7, color: '#2378f7'},
+                            {offset: 1, color: '#83bff6'}
+                        ]
+                    )
+                }
+            },
+            data: data
+        }
+    ]
+};
+//点击变大
+// var zoomSize = 6;
+// myChart.on('click', function (params) {
+//     console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+//     myChart.dispatchAction({
+//         type: 'dataZoom',
+//         startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+//         endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+//     });
+// });;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>

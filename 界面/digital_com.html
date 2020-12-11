@@ -9,16 +9,40 @@
 <canvas class="cavs" width="1575" height="1337"></canvas> 
 	<div class="showmain"> 
 		<p class="tendency">·&nbsp&nbsp&nbsp评价走势&nbsp&nbsp&nbsp·</p>
-		<div id="container" class="line_sp">
-			<img src={{dig_png_path}}>
+		<div  class="line_sp">
+			<!-- <img src={{dig_png_path}}> -->
+			<div id="tendency_pic"></div>
 		</div>
 		<p class="good_com">·&nbsp&nbsp&nbsp优选评价&nbsp&nbsp&nbsp·</p>
 		<div class="dig_com">
-			<!-- 详细评论 -->
-    		<iframe src="file.html" height="380" width="500" frameborder="0" scrolling="0"></iframe>
+    		<iframe src="file.html" height="360" width="550" frameborder="0" scrolling="0"></iframe>
 		</div>
 	</div>
 </body>
 </html>
 <script src="../static/js/login-2.js"></script>
 <script src="../static/js/login-1.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4/dist/echarts.min.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("tendency_pic");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    xAxis: {
+        type: 'category',
+        data: ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: {{sevedatas}},
+        type: 'line'
+    }]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
